@@ -6,7 +6,7 @@
 
 ## Navigation reducible in action
 
-For examples visit https://engineering.liqid.de/navigation-reducible.
+For examples visit our storybook entry https://engineering.liqid.de/navigation-reducible.
 
 ## Setup
 
@@ -14,6 +14,32 @@ For examples visit https://engineering.liqid.de/navigation-reducible.
 * [Node / NPM](https://www.npmjs.com/)
 * [NVM](https://github.com/creationix/nvm)
 
-### Integration
-* Clone repository
-* Run `npm install` in the root folder of the application
+### Install
+* `npm install liqid-navigation-reducible`
+
+> Important: Make sure to include the SCSS / CSS
+
+### Usage
+```js
+import NavigationReducible from 'navigation-reducible';
+
+ReactDOM.render((
+    <NavigationReducible>
+        <div onClick={this.doSomething}>
+            {'First item'}
+        </div>
+        <div onClick={this.doSomethingElse}>
+            {'Second item'}
+        </div>
+    </NavigationReducible>
+), document.getElementById('slider-root'));
+```
+
+### Live Demo
+
+For an example you can check out the storybook.
+
+* Clone the repository.
+* `npm install`
+* `npm run storybook`
+* Visit `http://localhost:9001/`.
