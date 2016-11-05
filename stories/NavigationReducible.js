@@ -5,7 +5,7 @@ import {
     setAddon
 } from '@kadira/storybook';
 import infoAddon from '@kadira/react-storybook-addon-info';
-import NavigationReducible from './index.js';
+import NavigationReducible from '../src/index.js';
 
 setAddon(infoAddon);
 

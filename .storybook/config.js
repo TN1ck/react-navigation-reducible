@@ -1,11 +1,13 @@
 import { configure } from '@kadira/storybook';
 
+import '../css/navigation-reducible.css';
+
 function requireAll (requireContext) {
     return requireContext.keys().map(requireContext);
 }
 
 function loadStories () {
-    requireAll(require.context('../src', true, /story\.js?$/));
+    require('../stories/NavigationReducible.js');
 }
 
 configure(loadStories, module);
