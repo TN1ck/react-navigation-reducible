@@ -1,6 +1,4 @@
 import React        from 'react';
-import CSSModules   from 'react-css-modules';
-import styles       from './NavigationHorizontal.css';
 import _            from 'lodash';
 import ReactDOM     from 'react-dom';
 
@@ -52,15 +50,15 @@ class NavigationHorizontal extends React.Component {
     }
     render () {
         return (
-            <ul styleName='navigation-horizontal' ref='navigationHorizontal'>
+            <ul className='navigation-horizontal' ref='navigationHorizontal'>
                 {
                     React.Children.map(this.props.items, (item, index) => {
                         return (
                             <li
-                                key={'item-container-' + index}
-                                styleName='item-container--visible'
+                                key={'navigation-horizontal__item-container-' + index}
+                                className='navigation-horizontal__item-container--visible'
                             >
-                                <div styleName='navigation-item'>
+                                <div className='navigation-horizontal__navigation-item'>
                                     {item}
                                 </div>
                             </li>
@@ -72,4 +70,4 @@ class NavigationHorizontal extends React.Component {
     }
 }
 
-module.exports = CSSModules(NavigationHorizontal, styles);
+module.exports = NavigationHorizontal;

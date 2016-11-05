@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames           from 'classnames';
-import CSSModules           from 'react-css-modules';
-import styles               from './NavigationReducible.css';
 
 import NavigationHorizontal from './NavigationHorizontal';
 import NavigationDropdown   from './NavigationDropdown';
@@ -101,7 +99,7 @@ class NavigationReducible extends React.Component {
         }
 
         return (
-            <nav styleName={navigationClasses}>
+            <nav className={navigationClasses}>
                 <NavigationHorizontal
                     ref='navigationHorizontalRef'
                     items={this.props.children}
@@ -115,6 +113,4 @@ class NavigationReducible extends React.Component {
 
 NavigationReducible.propTypes = propTypes;
 
-module.exports = CSSModules(NavigationReducible, styles, {
-    allowMultiple: true
-});
+module.exports = NavigationReducible;

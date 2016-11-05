@@ -1,6 +1,4 @@
 import React        from 'react';
-import CSSModules   from 'react-css-modules';
-import styles       from './Button.css';
 
 /**
  * Simple button
@@ -9,7 +7,7 @@ class Button extends React.Component {
     render () {
         return (
             <div
-                styleName='button'
+                className='dropdown-button'
                 onClick={this.props.onClick}
             >
                 {'...'}
@@ -18,4 +16,4 @@ class Button extends React.Component {
     }
 }
 
-module.exports = CSSModules(Button, styles);
+module.exports = Button;

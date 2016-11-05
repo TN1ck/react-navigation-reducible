@@ -1,7 +1,5 @@
 import React        from 'react';
 import classNames   from 'classnames';
-import CSSModules   from 'react-css-modules';
-import styles       from './NavigationDropdown.css';
 
 /**
  * Create the horizontal navigation itself
@@ -10,17 +8,17 @@ import styles       from './NavigationDropdown.css';
 class NavigationDropdown extends React.Component {
     render () {
         const secondNavigationClasses = classNames({
-            active: !this.props.isHidden
+            'navigation-dropdown--active': !this.props.isHidden
         }, 'navigation-dropdown');
 
         return (
-            <ul styleName={secondNavigationClasses}>
+            <ul className={secondNavigationClasses}>
                 {
                     this.props.items.map((item, index) => {
                         return (
                             <li
-                                key={'navigation-item-' + index}
-                                styleName='navigation-item'
+                                key={'navigation-dropdown__navigation-item-' + index}
+                                className='navigation-dropdown__navigation-item'
                             >
                                 {item}
                             </li>
@@ -32,6 +30,4 @@ class NavigationDropdown extends React.Component {
     }
 }
 
-module.exports = CSSModules(NavigationDropdown, styles, {
-    allowMultiple: true
-});
+module.exports = NavigationDropdown;
