@@ -1,0 +1,25 @@
+.button {
+    background: #333;
+    cursor: pointer;
+    color: #FFF;
+    font-weight: 400;
+    height: calc(100% + 2px);
+    letter-spacing: 4px;
+    line-height: 52px;
+    margin-top: -1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    width: 50px;
+}
+.button:after {
+    transition: opacity 0.2s ease-out;
+    background: #FFF;
+    content: "";
+    height: 100%;
+    opacity: 0.5;
+    position: absolute;
+    right: 100%;
+    width: 30px;
+}
