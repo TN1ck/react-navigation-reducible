@@ -4,12 +4,12 @@
   "description": "A horizontal navigation which adds a dropdown as soon as not all navigation items fit in one line anymore. It only adds items to the dropdown which are not visisble anymore.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npm run babel && npm run css",
+    "build": "npm run babel",
     "storybook": "start-storybook -p 9001",
-    "babel": "./node_modules/.bin/babel src -d lib",
-    "css": "./node_modules/.bin/cpx './src/**/*.css' ./lib",
+    "babel": "./node_modules/.bin/babel  --presets es2015 src -d lib",
     "lint:js": "./node_modules/.bin/eslint src  || true",
-    "lint:css": "./node_modules/.bin/csslint src  || true"
+    "lint:css": "./node_modules/.bin/csslint src  || true",
+    "test": "./node_modules/.bin/mocha --require .scripts/mocha_runner.js ./tests/navigation-test.js"
   },
   "keywords": [
     "liqid",
