@@ -57,4 +57,106 @@ storiesOf('Navigation Reducible', module)
             inline: true
         }
     )
+    .addWithInfo(
+        'Reducible navigation: Minimize on breakpoint',
+        `At a given size, 
+        reduce the navigation to the button only.`,
+        () => (
+            <NavigationReducible
+                minimizeAtWidth={640}
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Minimize on item amount',
+        `At a given amount of still shown items, 
+        reduce the navigation to the button only.`,
+        () => (
+            <NavigationReducible
+                minimizeAtItemsLeft={3}
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Dropdown shows always all items',
+        'Sometimes it makes sense to always show all items in the dropdown.',
+        () => (
+            <NavigationReducible
+                dropdownShowsAll
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Minimize on first hidden',
+        'Minimize as soon as one item becomes hidden',
+        () => (
+            <NavigationReducible
+                minimizeOnFirstHidden
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Minimized',
+        'Only the dropdown button is shown',
+        () => (
+            <NavigationReducible
+                minimized
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
 ;

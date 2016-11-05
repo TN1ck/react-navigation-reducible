@@ -6,7 +6,12 @@ import NavigationDropdown   from './NavigationDropdown';
 import Button               from './Button';
 
 const propTypes = {
-    children: PropTypes.array // eslint-disable-line
+    children: PropTypes.array, // eslint-disable-line
+    dropdownShowsAll: PropTypes.bool,
+    minimizeAtItemsLeft: PropTypes.number,
+    minimizeAtWidth: PropTypes.number,
+    minimizeOnFirstHidden: PropTypes.bool,
+    minimized: PropTypes.bool
 };
 
 /**
@@ -22,7 +27,8 @@ class NavigationReducible extends React.Component {
             // which don't have space in the regular horizontal navigation anymore
             secondNavigationItems: [],
             // Is second navigation shown right now?
-            isSecondNavigationHidden: true
+            isSecondNavigationHidden: true,
+            isMinimized: props.minimized
         };
         this.checkVisibleItems = this.checkVisibleItems.bind(this);
         this.hideExtendedNavigation = this.hideExtendedNavigation.bind(this);
@@ -43,7 +49,9 @@ class NavigationReducible extends React.Component {
     componentWillReceiveProps (props) {
         // If amount of navigation items changes, make sure to recheck visible items
         if (this.props.children.length !== props.children.length) {
-            this.checkVisibleItems();
+            if (!this.props.dropdownShowsAll) {
+                this.checkVisibleItems();
+            }
         }
     }
     /**
@@ -51,10 +59,9 @@ class NavigationReducible extends React.Component {
      * @returns {undefined}
      */
     checkVisibleItems () {
-        const newState = this.refs.navigationHorizontalRef.calculateHiddenItems() || {
+        let newState = this.refs.navigationHorizontalRef.calculateHiddenItems() || {
             secondNavigationItems: []
         };
-        // set second navigation items
         this.setState(newState);
     }
     /**
@@ -78,7 +85,9 @@ class NavigationReducible extends React.Component {
         });
     }
     render () {
-        const navigationClasses = classNames('navigation-reducible');
+        const navigationClasses = classNames('navigation-reducible', {
+            'navigation-reducible--minimized': this.state.isMinimized
+        });
         let buttonContainer;
         let secondNavigation;
 
@@ -92,7 +101,7 @@ class NavigationReducible extends React.Component {
             );
             secondNavigation = (
                 <NavigationDropdown
-                    items={this.state.secondNavigationItems}
+                    items={this.props.dropdownShowsAll ? this.props.children : this.state.secondNavigationItems}
                     isHidden={this.state.isSecondNavigationHidden}
                 />
             );

@@ -1,10 +1,18 @@
 /**
+ * Do not overwrite the below CSS
+ * If you want to add your own styling for the navigation add your own file
+ */
+
+/**
  * Navigation Reducible Wrapper
  */
 .navigation-reducible {
     font-family: Arial, Helvetica, sans-serif;
     padding-right: 50px;
     position: relative;
+}
+.navigation-reducible--minimized {
+    width: 0;
 }
 
 /**
