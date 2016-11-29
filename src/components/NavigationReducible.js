@@ -4,6 +4,7 @@ import classNames           from 'classnames';
 import NavigationHorizontal from './NavigationHorizontal';
 import NavigationDropdown   from './NavigationDropdown';
 import Button               from './Button';
+import ReactDOM             from 'react-dom';
 
 const propTypes = {
     children: PropTypes.array, // eslint-disable-line
@@ -11,7 +12,9 @@ const propTypes = {
     minimizeAtItemsLeft: PropTypes.number,
     minimizeAtWidth: PropTypes.number,
     minimizeOnFirstHidden: PropTypes.bool,
-    minimized: PropTypes.bool
+    minimized: PropTypes.bool,
+    buttonLabel: PropTypes.string,
+    alignMinimizedButtonLeft: PropTypes.bool
 };
 
 /**
@@ -59,7 +62,12 @@ class NavigationReducible extends React.Component {
      * @returns {undefined}
      */
     checkVisibleItems () {
-        let newState = this.refs.navigationHorizontalRef.calculateHiddenItems() || {
+        const buttonWidth = ReactDOM.findDOMNode(this.refs.buttonRef).offsetWidth;
+        const currentFullNavigationWidth = ReactDOM.findDOMNode(this.refs.navigationReducibleWrapRef).offsetWidth;
+        let newState = this.refs.navigationHorizontalRef.calculateHiddenItems(buttonWidth, {
+            minimizeAtWidth: this.props.minimizeAtWidth,
+            minimizeAtItemsLeft: this.props.minimizeAtItemsLeft
+        }, currentFullNavigationWidth) || {
             secondNavigationItems: []
         };
         this.setState(newState);
@@ -85,20 +93,27 @@ class NavigationReducible extends React.Component {
         });
     }
     render () {
+        const hasSecondLevel = this.state.secondNavigationItems && this.state.secondNavigationItems.length > 0;
+        const minimized = this.state.isMinimized;
         const navigationClasses = classNames('navigation-reducible', {
-            'navigation-reducible--minimized': this.state.isMinimized
+            'navigation-reducible--minimized': minimized
         });
         let buttonContainer;
         let secondNavigation;
 
+        buttonContainer = (
+            <Button
+                onClick={this.toggleExtendedNavigation}
+                leftAligned={this.props.alignMinimizedButtonLeft}
+                isHidden={!hasSecondLevel}
+                ref='buttonRef'
+                label={this.props.buttonLabel}
+            />
+        );
+
         // If not all items can be shown in main navigation
         // render dropdown and button to toggle it
-        if (this.state.secondNavigationItems && this.state.secondNavigationItems.length > 0) {
-            buttonContainer = (
-                <Button
-                    onClick={this.toggleExtendedNavigation}
-                />
-            );
+        if (hasSecondLevel) {
             secondNavigation = (
                 <NavigationDropdown
                     items={this.props.dropdownShowsAll ? this.props.children : this.state.secondNavigationItems}
@@ -108,13 +123,18 @@ class NavigationReducible extends React.Component {
         }
 
         return (
-            <nav className={navigationClasses}>
-                <NavigationHorizontal
-                    ref='navigationHorizontalRef'
-                    items={this.props.children}
-                />
-                {secondNavigation}
-                {buttonContainer}
+            <nav
+                className='navigation-reducible-wrap'
+                ref='navigationReducibleWrapRef'
+            >
+                <div className={navigationClasses}>
+                    <NavigationHorizontal
+                        ref='navigationHorizontalRef'
+                        items={this.props.children}
+                    />
+                    {buttonContainer}
+                    {secondNavigation}
+                </div>
             </nav>
         );
     }

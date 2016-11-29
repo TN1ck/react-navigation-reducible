@@ -3,13 +3,15 @@
  * If you want to add your own styling for the navigation add your own file
  */
 
+.navigation-reducible-wrap {
+    position: relative;
+}
+
 /**
  * Navigation Reducible Wrapper
  */
 .navigation-reducible {
     font-family: Arial, Helvetica, sans-serif;
-    padding-right: 50px;
-    position: relative;
 }
 .navigation-reducible--minimized {
     width: 0;
@@ -55,7 +57,7 @@
  */
 .navigation-dropdown {
     background: #FFF;
-    box-shadow: 0 0 5px #eee;
+    box-shadow: 0 0 2px 0px #c2c2c2;
     color: #333;
     display: none;
     font-size: 12px;
@@ -65,7 +67,7 @@
     padding: 0;
     position: absolute;
     right: 0;
-    top: calc(100% - 10px);
+    top: 100%;
     text-transform: uppercase;
     z-index: 2;
 }
@@ -83,24 +85,34 @@
     background: #333;
     cursor: pointer;
     color: #FFF;
+    font-size: 12px;
     font-weight: 400;
     height: calc(100% + 2px);
-    letter-spacing: 4px;
     line-height: 52px;
     margin-top: -1px;
+    padding: 0 12px;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50%;
+    transform: translate(0, -50%);
     text-align: center;
-    width: 50px;
 }
+.navigation-reducible--minimized .dropdown-button--left {
+    left: 0;
+    right: auto;
+}
+.navigation-reducible--minimized .dropdown-button--left + .navigation-dropdown {
+    left: 0;
+    right: auto;
+}
+/**
+ * Button shadow in front of button
+ */
 .dropdown-button:after {
-    transition: opacity 0.2s ease-out;
-    background: #FFF;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
     content: "";
     height: 100%;
-    opacity: 0.5;
     position: absolute;
     right: 100%;
-    width: 30px;
+    width: 40px;
 }

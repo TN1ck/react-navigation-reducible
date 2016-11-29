@@ -59,7 +59,7 @@ storiesOf('Navigation Reducible', module)
     )
     .addWithInfo(
         'Reducible navigation: Minimize on breakpoint',
-        `At a given size, 
+        `At a given size,
         reduce the navigation to the button only.`,
         () => (
             <NavigationReducible
@@ -80,7 +80,7 @@ storiesOf('Navigation Reducible', module)
     )
     .addWithInfo(
         'Reducible navigation: Minimize on item amount',
-        `At a given amount of still shown items, 
+        `At a given amount of still shown items,
         reduce the navigation to the button only.`,
         () => (
             <NavigationReducible
@@ -145,6 +145,68 @@ storiesOf('Navigation Reducible', module)
         () => (
             <NavigationReducible
                 minimized
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Minimized on left',
+        'Only the dropdown button is shown',
+        () => (
+            <NavigationReducible
+                minimized
+                alignMinimizedButtonLeft
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Custom button label',
+        'Change the label of the button',
+        () => (
+            <NavigationReducible
+                buttonLabel={'show more..'}
+            >
+                {navigationDashboardItems.map(({id, translation}) => {
+                    return (
+                        <div key={'navigation-item-' + id}>
+                            {translation}
+                        </div>
+                    );
+                })}
+            </NavigationReducible>
+        ), {
+            source: true,
+            inline: true
+        }
+    )
+    .addWithInfo(
+        'Reducible navigation: Custom button label and left aligned button on minimize',
+        'Change the label of the button',
+        () => (
+            <NavigationReducible
+                buttonLabel={'show more..'}
+                alignMinimizedButtonLeft
             >
                 {navigationDashboardItems.map(({id, translation}) => {
                     return (
