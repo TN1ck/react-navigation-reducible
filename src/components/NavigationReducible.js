@@ -65,8 +65,10 @@ class NavigationReducible extends React.Component {
         const buttonWidth = ReactDOM.findDOMNode(this.refs.buttonRef).offsetWidth;
         const currentFullNavigationWidth = ReactDOM.findDOMNode(this.refs.navigationReducibleWrapRef).offsetWidth;
         let newState = this.refs.navigationHorizontalRef.calculateHiddenItems(buttonWidth, {
-            minimizeAtWidth: this.props.minimizeAtWidth,
-            minimizeAtItemsLeft: this.props.minimizeAtItemsLeft
+            minimizeAtWidth:        this.props.minimizeAtWidth,
+            minimizeAtItemsLeft:    this.props.minimizeAtItemsLeft,
+            minimizeOnFirstHidden:  this.props.minimizeOnFirstHidden,
+            minimized:              this.props.minimized
         }, currentFullNavigationWidth) || {
             secondNavigationItems: []
         };

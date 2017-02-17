@@ -54,6 +54,12 @@ class NavigationHorizontal extends React.Component {
         if (options.minimizeAtWidth) {
             breakpoints.push(options.minimizeAtWidth);
         }
+        if (options.minimizeOnFirstHidden) {
+            breakpoints.push(fullWidth - buttonWidth);
+        }
+        if (options.minimized) {
+            breakpoints.push(currentFullNavigationWidth);
+        }
         // Always break latest at the last item
         breakpoints.push(_.first(listItems).width);
         breakpoints = _.max(breakpoints);
