@@ -1,5 +1,7 @@
 # Reducible Navigation for React.js
 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
 > A responsive horizontal navigation which adds a dropdown as soon as not all items can be shown anymore which only holds not shown items.
 
 ![Navigation demo](sample.gif)
