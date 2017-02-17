@@ -1,11 +1,11 @@
 {
-  "name": "liqid-navigation-reducible",
+  "name": "react-navigation-reducible",
   "version": "1.0.0",
   "description": "A horizontal navigation which adds a dropdown as soon as not all navigation items fit in one line anymore. It only adds items to the dropdown which are not visisble anymore.",
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run babel",
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -p 9001 -s ./public",
     "babel": "./node_modules/.bin/babel  --presets es2015 src -d lib",
     "lint:js": "./node_modules/.bin/eslint src  || true",
     "lint:css": "./node_modules/.bin/csslint src  || true",
@@ -39,7 +39,7 @@
     "react": "^15.2.1"
   },
   "devDependencies": {
-    "@kadira/react-storybook-addon-info": "^3.1.1",
+    "@kadira/react-storybook-addon-info": "3.3.0",
     "@kadira/storybook": "^1.39.0",
     "autoprefixer-core": "^5.1.11",
     "chai": "^3.5.0",

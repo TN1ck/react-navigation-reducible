@@ -40,7 +40,7 @@ const navigationDashboardItems = [
 storiesOf('Navigation Reducible', module)
     .addWithInfo(
         'Reducible navigation: Default',
-        `Default behavior - navigation items are aligned left. 
+        `Default behavior - navigation items are aligned left.
         As soon as there is not enough space for the items anymore, the button to open the dropdown is shown on the right.`,
         () => (
             <NavigationReducible>
@@ -54,7 +54,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -75,7 +75,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -96,7 +96,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -116,7 +116,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -136,7 +136,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -156,7 +156,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -177,7 +177,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -197,7 +197,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
     .addWithInfo(
@@ -218,7 +218,7 @@ storiesOf('Navigation Reducible', module)
             </NavigationReducible>
         ), {
             source: true,
-            inline: true
+            inline: false
         }
     )
 ;
