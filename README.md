@@ -6,10 +6,6 @@
 
 ![Navigation demo](sample.gif)
 
-## Navigation reducible in action
-
-For examples visit our storybook entry https://engineering.liqid.de/navigation-reducible.
-
 ## Setup
 
 ### Prerequisites
